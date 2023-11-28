@@ -116,6 +116,7 @@ print(my_name)
 # COMMAND ----------
 
 display(example_df)
+print(type(example_df))
 
 # COMMAND ----------
 
@@ -140,6 +141,17 @@ display(example_df)
 # MAGIC * A header
 # MAGIC * Bullet points
 # MAGIC * A link (using your choice of HTML or Markdown conventions)
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC
+# MAGIC # This is useful
+# MAGIC
+# MAGIC ## I remenber doing this
+# MAGIC
+# MAGIC - one
+# MAGIC - two
 
 # COMMAND ----------
 
