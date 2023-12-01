@@ -102,6 +102,10 @@ OPTIONS (
   delimiter = "|"
 );
 
+-- COMMAND ----------
+
+
+
 CREATE TABLE sales_delta AS
   SELECT * FROM sales_tmp_vw;
   

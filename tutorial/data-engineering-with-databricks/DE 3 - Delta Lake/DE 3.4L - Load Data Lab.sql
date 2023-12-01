@@ -72,7 +72,14 @@
 -- COMMAND ----------
 
 -- TODO
-<FILL_IN>
+CREATE OR REPLACE TABLE events_raw (
+  key BINARY,
+  offset LONG,
+  partition INTEGER,
+  timestamp LONG,
+  topic STRING,
+  value BINARY
+)
 
 -- COMMAND ----------
 
@@ -115,7 +122,8 @@
 -- COMMAND ----------
 
 -- TODO
-<FILL_IN>
+INSERT OVERWRITE event_raw
+
 
 -- COMMAND ----------
 

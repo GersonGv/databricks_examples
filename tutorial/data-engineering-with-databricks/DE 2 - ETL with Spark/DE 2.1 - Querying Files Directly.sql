@@ -154,6 +154,10 @@ AS SELECT * FROM json.`${DA.paths.kafka_events}`
 
 -- COMMAND ----------
 
+SHOW VIEWS
+
+-- COMMAND ----------
+
 -- DBTITLE 0,--i18n-5c29b73b-b4b0-48ab-afbb-7b1422fce6e4
 -- MAGIC %md
 -- MAGIC
@@ -210,7 +214,7 @@ SELECT * FROM cte_json
 
 -- COMMAND ----------
 
--- SELECT COUNT(*) FROM cte_json
+SELECT COUNT(*) FROM cte_json
 
 -- COMMAND ----------
 
