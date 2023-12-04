@@ -41,6 +41,14 @@
 
 -- COMMAND ----------
 
+show tables
+
+-- COMMAND ----------
+
+describe detail events_raw
+
+-- COMMAND ----------
+
 -- DBTITLE 0,--i18n-a6be8b8a-1c1f-40dd-a71c-8e91ae079b5c
 -- MAGIC %md
 -- MAGIC
@@ -49,6 +57,10 @@
 -- MAGIC The **`events_raw`** table was registered against data representing a Kafka payload. In most cases, Kafka data will be binary-encoded JSON values. 
 -- MAGIC
 -- MAGIC Let's cast the **`key`** and **`value`** as strings to view these values in a human-readable format.
+
+-- COMMAND ----------
+
+select * from events_raw
 
 -- COMMAND ----------
 

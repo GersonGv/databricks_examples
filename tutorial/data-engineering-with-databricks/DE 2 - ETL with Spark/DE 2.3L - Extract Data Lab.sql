@@ -73,6 +73,21 @@
 
 -- COMMAND ----------
 
+--DROP TABLE events_json;
+
+CREATE TABLE IF NOT EXISTS events_json
+USING JSON
+OPTIONS (
+  header = "True"
+) 
+LOCATION "${DA.paths.kafka_events}" 
+
+-- COMMAND ----------
+
+DESCRIBE EXTENDED events_json
+
+-- COMMAND ----------
+
 -- TODO
 DROP TABLE events_json;
 

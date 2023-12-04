@@ -46,6 +46,10 @@
 
 -- COMMAND ----------
 
+SHOW TABLES
+
+-- COMMAND ----------
+
 -- DBTITLE 0,--i18n-31202e20-c326-4fa0-8892-ab9308b4b6f0
 -- MAGIC %md
 -- MAGIC ## Data Overview
@@ -97,7 +101,8 @@ SELECT count(*) FROM users_dirty WHERE email IS NULL;
 -- MAGIC usersDF = spark.read.table("users_dirty")
 -- MAGIC
 -- MAGIC usersDF.selectExpr("count_if(email IS NULL)")
--- MAGIC usersDF.where(col("email").isNull()).count()
+-- MAGIC display(usersDF)
+-- MAGIC #usersDF.where(col("email").isNull()).count()
 
 -- COMMAND ----------
 
@@ -139,6 +144,15 @@ WHERE user_id IS NOT NULL
 GROUP BY user_id, user_first_touch_timestamp;
 
 SELECT count(*) FROM deduped_users
+
+-- COMMAND ----------
+
+SELECT * FROM deduped_users
+ORDER BY email
+
+-- COMMAND ----------
+
+SHOW VIEWS
 
 -- COMMAND ----------
 
@@ -243,6 +257,12 @@ SELECT max(user_id_count) <= 1 at_most_one_id FROM (
 -- MAGIC - Correctly scales and casts the **`user_first_touch_timestamp`** to a valid timestamp
 -- MAGIC - Extracts the calendar date and clock time for this timestamp in human readable format
 -- MAGIC - Uses **`regexp_extract`** to extract the domains from the email column using regex
+
+-- COMMAND ----------
+
+  SELECT *,
+    CAST(user_first_touch_timestamp / 1e6 AS timestamp) AS first_touch 
+  FROM deduped_users
 
 -- COMMAND ----------
 

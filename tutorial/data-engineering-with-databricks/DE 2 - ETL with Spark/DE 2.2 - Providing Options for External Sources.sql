@@ -154,6 +154,10 @@ SELECT * FROM sales_csv
 
 -- COMMAND ----------
 
+describe detail sales_csv
+
+-- COMMAND ----------
+
 SELECT COUNT(*) FROM sales_csv
 
 -- COMMAND ----------
@@ -311,6 +315,14 @@ DESCRIBE EXTENDED users_jdbc
 -- MAGIC
 -- MAGIC
 -- MAGIC Listing the contents of the specified location confirms that no data is being persisted locally.
+
+-- COMMAND ----------
+
+-- MAGIC %python
+-- MAGIC import pyspark.sql.functions as F
+-- MAGIC
+-- MAGIC location = spark.sql("DESCRIBE EXTENDED users_jdbc").filter(F.col("col_name") == "Location").first()["data_type"]
+-- MAGIC print(location)
 
 -- COMMAND ----------
 
